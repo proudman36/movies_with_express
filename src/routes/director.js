@@ -21,4 +21,12 @@ router.post(`/${path}`, (req,res) => {
      .catch((error) => res.json({message: error}) )
  })
 
+ router.get(`/${path}`, (req,res) =>{
+    const { id } = req.params
+    directorSchema
+    .findById(id)
+     .then((data) => res.json(data))
+     .catch((error) => res.json({message: error}) )
+ })
+
  module.exports = router;

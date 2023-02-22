@@ -5,12 +5,20 @@ const app = express();
 
 const actorRoute = require('./src/routes/actor')
 const directorRoute = require('./src/routes/director')
+const mov_dirRoute = require('./src/routes/movie_direction')
+const mov_casRoute = require('./src/routes/movie_cast')
+const movieRoute = require('./src/routes/movie')
+const reviewerRoute = require('./src/routes/reviewer')
 
 require('dotenv').config();
 
 app.use(express.json());
 app.use(actorRoute);
 app.use(directorRoute)
+app.use(mov_dirRoute)
+app.use(mov_casRoute)
+app.use(movieRoute)
+app.use(reviewerRoute)
 const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log('Server on port', port)
