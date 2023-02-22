@@ -1,0 +1,19 @@
+{
+  "name": "movies_express",
+  "version": "1.0.0",
+  "description": "\"Movie project, that handles the information about movies and shows it to the user \"",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "proudman36",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "mongodb": "^5.0.1",
+    "mongoose": "^6.9.2"
+  }
+}

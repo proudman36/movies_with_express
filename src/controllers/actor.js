@@ -1,0 +1,3 @@
+exports.getActor = (req, res) => {
+    
+}
