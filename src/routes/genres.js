@@ -29,6 +29,23 @@ router.post(`/${path}`, (req,res) => {
      .catch((error) => res.json({message: error}) )
  })
 
+ router.delete(`/${path}`, (req, res) => {
+    const { id } = req.params;
+    userSchema
+      .remove({ _id: id })
+      .then((data) => res.json(data))
+      .catch((error) => res.json({ message: error }));
+  });
+  
+  router.put(`/${path}`, (req, res) => {
+    const { id } = req.params;
+    const { gen_id, gen_title} = req.body;
+    userSchema
+      .updateOne({ _id: id }, { $set: { gen_id, gen_title}})
+      .then((data) => res.json(data))
+      .catch((error) => res.json({ message: error }));
+  });
+
  
 
  module.exports = router;
