@@ -21,7 +21,7 @@ router.post(`/${path}`, (req,res) => {
      .catch((error) => res.json({message: error}) )
  })
 
- router.get(`/${path}`, (req,res) =>{
+ router.get(`/${path}:id`, (req,res) =>{
     const { id } = req.params
     genresSchema
     .findById(id)
@@ -29,7 +29,7 @@ router.post(`/${path}`, (req,res) => {
      .catch((error) => res.json({message: error}) )
  })
 
- router.delete(`/${path}`, (req, res) => {
+ router.delete(`/${path}:id`, (req, res) => {
     const { id } = req.params;
     userSchema
       .remove({ _id: id })
@@ -37,7 +37,7 @@ router.post(`/${path}`, (req,res) => {
       .catch((error) => res.json({ message: error }));
   });
   
-  router.put(`/${path}`, (req, res) => {
+  router.put(`/${path}:id`, (req, res) => {
     const { id } = req.params;
     const { gen_id, gen_title} = req.body;
     userSchema

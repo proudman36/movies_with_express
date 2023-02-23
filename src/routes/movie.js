@@ -17,5 +17,20 @@ router.get(`/${path}`,(req,res)=>{
     .then((data)=>res.json(data))
     .catch((error) => res.json({message:error}))
 })
-
+router.delete(`/${path}:id`, (req, res) => {
+    const { id } = req.params;
+    userSchema
+      .remove({ _id: id })
+      .then((data) => res.json(data))
+      .catch((error) => res.json({ message: error }));
+  });
+  
+  router.put(`/${path}:id`, (req, res) => {
+    const { id } = req.params;
+    const {mov_id, mov_title, mov_year, mov_time, mov_lang, mov_dt_rel, mov_rel_country } = req.body;
+    userSchema
+      .updateOne({ _id: id }, { $set: { mov_id, mov_title, mov_year, mov_time, mov_lang, mov_dt_rel, mov_rel_country }})
+      .then((data) => res.json(data))
+      .catch((error) => res.json({ message: error }));
+  });
 module.exports = router;
