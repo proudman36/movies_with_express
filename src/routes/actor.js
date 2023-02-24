@@ -35,6 +35,24 @@ router.get(`/${path}`, (req,res) => {
  
  })
 
+ router.delete(`/${path}/:id`,(req, res)=>{
+    const {id} = req.params;
+    actorSchema
+    .remove({_id:id})
+    .then((data)=>res.json(data))
+    .catch((error)=> res.json({message: error}))
+
+})
+router.put(`/${path}/:id`, (req, res) => {
+    const { id } = req.params;
+    const { act_id, act_fname, act_lname, act_gender } = req.body;
+    userSchema
+      .updateOne({ _id: id }, { $set: { act_id, act_fname, act_lname, act_gender } })
+      .then((data) => res.json(data))
+      .catch((error) => res.json({ message: error }));
+  });
+
+
 module.exports = router;
 
 
