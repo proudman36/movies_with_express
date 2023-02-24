@@ -19,7 +19,7 @@ router.get(`/${path}`,(req,res) => {
     .catch((error)=>res.json({message: error}))
 })
 
-router.get(`/${path}`,(req,res) => {
+router.get(`/${path}:id`,(req,res) => {
     const { id } = req.params
     movie_castSchema
     .findById(id)
@@ -30,7 +30,7 @@ router.get(`/${path}`,(req,res) => {
 
 router.delete(`/${path}`, (req, res) => {
     const { id } = req.params;
-    userSchema
+    movie_castSchema
       .remove({ _id: id })
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));
@@ -39,7 +39,7 @@ router.delete(`/${path}`, (req, res) => {
   router.put(`/${path}`, (req, res) => {
     const { id } = req.params;
     const { act_id, mov_id, role} = req.body;
-    userSchema
+    movie_castSchema
       .updateOne({ _id: id }, { $set: { act_id, mov_id, role}})
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));

@@ -46,7 +46,7 @@ router.get(`/${path}`, (req,res) => {
 router.put(`/${path}/:id`, (req, res) => {
     const { id } = req.params;
     const { act_id, act_fname, act_lname, act_gender } = req.body;
-    userSchema
+    actorSchema
       .updateOne({ _id: id }, { $set: { act_id, act_fname, act_lname, act_gender } })
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));

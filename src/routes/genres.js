@@ -31,7 +31,7 @@ router.post(`/${path}`, (req,res) => {
 
  router.delete(`/${path}:id`, (req, res) => {
     const { id } = req.params;
-    userSchema
+    genresSchema
       .remove({ _id: id })
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));
@@ -40,7 +40,7 @@ router.post(`/${path}`, (req,res) => {
   router.put(`/${path}:id`, (req, res) => {
     const { id } = req.params;
     const { gen_id, gen_title} = req.body;
-    userSchema
+    genresSchema
       .updateOne({ _id: id }, { $set: { gen_id, gen_title}})
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));

@@ -28,7 +28,7 @@ router.get(`/${path}:id`, (req,res) => {
 
 router.delete(`/${path}:id`, (req, res) => {
     const { id } = req.params;
-    userSchema
+    movie_directionSchema
       .remove({ _id: id })
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));
@@ -37,7 +37,7 @@ router.delete(`/${path}:id`, (req, res) => {
   router.put(`/${path}:id`, (req, res) => {
     const { id } = req.params;
     const { dir_id,  mov_id} = req.body;
-    userSchema
+    movie_directionSchema
       .updateOne({ _id: id }, { $set: { dir_id,  mov_id}})
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }));

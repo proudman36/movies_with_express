@@ -31,7 +31,7 @@ router.post(`/${path}`, (req,res) => {
 
  router.delete(`/${path}:id`, (req, res) => {
   const { id } = req.params;
-  userSchema
+  directorSchema
     .remove({ _id: id })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -40,7 +40,7 @@ router.post(`/${path}`, (req,res) => {
 router.put(`/${path}:id`, (req, res) => {
   const { id } = req.params;
   const { dir_id, dir_fname, dir_lname } = req.body;
-  userSchema
+  directorSchema
     .updateOne({ _id: id }, { $set: { dir_id,  dir_fname, dir_lname } })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
