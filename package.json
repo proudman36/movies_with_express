@@ -4,7 +4,7 @@
   "description": "\"Movie project, that handles the information about movies and shows it to the user \"",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon src/main.js"
+    "start": "node main.js"
   },
   "author": "proudman36",
   "license": "ISC",
